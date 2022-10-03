@@ -35,7 +35,7 @@ describe("Intern", () => {
       let newIntern = new Intern("Sarah", 3, "sarah@email.com", "SMU");
 
       //Assert
-      expect(newIntern.getId()).toEqual("3");
+      expect(newIntern.getId()).toEqual(3);
     });
   });
 

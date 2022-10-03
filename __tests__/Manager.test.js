@@ -13,7 +13,7 @@ describe("Employee", () => {
       expect(newManager.name).toEqual("James");
       expect(newManager.id).toEqual(4);
       expect(newManager.email).toEqual("james@email.com");
-      expect(newManager.officeNumber).toEqual("100");
+      expect(newManager.officeNumber).toEqual(100);
     });
   });
 
