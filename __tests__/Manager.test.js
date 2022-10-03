@@ -1,3 +1,5 @@
+const Manager = require("../lib/Manager");
+
 // Managers will be test by this rule
 describe("Employee", () => {
   // INITIALIZATION
@@ -16,7 +18,7 @@ describe("Employee", () => {
   });
 
   describe("getName", () => {
-    it("should return the name that I give, upon instantiation", () => {
+    it("should return name when asked what the name is", () => {
       //Arrange
       //Act
       let newManager = new Manager("James", 4, "james@email.com", 100);
@@ -26,7 +28,7 @@ describe("Employee", () => {
   });
 
   describe("getId", () => {
-    it("should return the Id that I give, upon instantiation", () => {
+    it("should return Id when asked what the Id is", () => {
       //Arrange
       //Act
       let newManager = new Manager("James", 4, "james@email.com", 100);
@@ -36,7 +38,7 @@ describe("Employee", () => {
   });
 
   describe("getEmail", () => {
-    it("should return the Email that I give, upon instantiation", () => {
+    it("should return email when asked what the email is", () => {
       //Arrange
       //Act
       let newManager = new Manager("James", 4, "james@email.com", 100);
@@ -46,7 +48,7 @@ describe("Employee", () => {
   });
 
   describe("getofficeNumber", () => {
-    it("should return the office number that I give, upon instantiation", () => {
+    it("should return office number when asked what the office number is", () => {
       //Arrange
       //Act
       let newManager = new Manager("James", 4, "james@email.com", 100);
@@ -56,7 +58,7 @@ describe("Employee", () => {
   });
 
   describe("getRole", () => {
-    it("should return the Email that I give, upon instantiation", () => {
+    it("should return Manager when asked what the role is", () => {
       //Arrange
       //Act
       let newManager = new Manager("James", 4, "james@email.com", 100);
