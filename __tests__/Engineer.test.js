@@ -7,12 +7,17 @@ describe("Engineer", () => {
     it("should get initialized correctly", () => {
       //Arrange
       //Act
-      let newEngineer = new Engineer("John", 2, "paul@email.com");
+      let newEngineer = new Engineer(
+        "John",
+        2,
+        "John@email.com",
+        "github.com/john"
+      );
 
       //Assert
-      expect(newEngineer.name).toEqual("Paul");
+      expect(newEngineer.name).toEqual("John");
       expect(newEngineer.id).toEqual(2);
-      expect(newEngineer.email).toEqual("paul@email.com");
+      expect(newEngineer.email).toEqual("John@email.com");
     });
   });
 
