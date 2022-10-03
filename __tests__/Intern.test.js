@@ -57,7 +57,7 @@ describe("Intern", () => {
       let newIntern = new Intern("Sarah", 3, "sarah@email.com", "SMU");
 
       //Assert
-      expect(newIntern.getGithub()).toEqual("SMU");
+      expect(newIntern.getSchool()).toEqual("SMU");
     });
   });
 
