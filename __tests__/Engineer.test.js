@@ -17,7 +17,7 @@ describe("Engineer", () => {
   });
 
   describe("getName", () => {
-    it("should return Engineer when asked what the role is", () => {
+    it("should return Name when asked what the name is", () => {
       //Arrange
       //Act
       let newEngineer = new Engineer(
@@ -29,6 +29,54 @@ describe("Engineer", () => {
 
       //Assert
       expect(newEngineer.getName()).toEqual("John");
+    });
+  });
+
+  describe("getId", () => {
+    it("should return Id when asked what the Id is", () => {
+      //Arrange
+      //Act
+      let newEngineer = new Engineer(
+        "John",
+        2,
+        "John@email.com",
+        "github.com/john"
+      );
+
+      //Assert
+      expect(newEngineer.getId()).toEqual("2");
+    });
+  });
+
+  describe("getEmail", () => {
+    it("should return Email when asked what the Email is", () => {
+      //Arrange
+      //Act
+      let newEngineer = new Engineer(
+        "John",
+        2,
+        "John@email.com",
+        "github.com/john"
+      );
+
+      //Assert
+      expect(newEngineer.getEmail()).toEqual("John@email.com");
+    });
+  });
+
+  describe("getGithub", () => {
+    it("should return github address when asked what the github address is", () => {
+      //Arrange
+      //Act
+      let newEngineer = new Engineer(
+        "John",
+        2,
+        "John@email.com",
+        "github.com/john"
+      );
+
+      //Assert
+      expect(newEngineer.getGithub()).toEqual("github.com/john");
     });
   });
 
