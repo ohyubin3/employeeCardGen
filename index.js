@@ -1,51 +1,77 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
+const Engineer = require("./lib/Engineer");
+const Manager = require("./lib/Manager");
+const Intern = require("./lib/Intern");
+const employeeSlot = [];
 
-inquirer.prompt([
-  {
-    type: "input",
-    name: "title",
-    message: "Please provide the title of your project.",
-  },
-  {
-    type: "input",
-    name: "description",
-    message: "Please provide your project description.",
-  },
-  {
-    type: "input",
-    name: "installation",
-    message: "Please provide your project installation instructions.",
-  },
-  {
-    type: "input",
-    name: "usage",
-    message: "Please provide your project usage information",
-  },
-  {
-    type: "input",
-    name: "guideline",
-    message: "Please provide your project contribution guidelines.",
-  },
-  {
-    type: "list",
-    name: "license",
-    message: "Please choose your licenses.",
-    choices: ["MIT", "IBM"],
-  },
-  {
-    type: "input",
-    name: "test",
-    message: "Please provide your test instructions for your project.",
-  },
-  {
-    type: "input",
-    name: "github",
-    message: "Please provide your github repository address",
-  },
-  {
-    type: "input",
-    name: "email",
-    message: "Please provide your email",
-  },
-]);
+main();
+
+function main() {
+  inquirer
+    .prompt([
+      {
+        type: "list",
+        name: "roleToAdd",
+        message: "Select the the role of an employee to add",
+        choices: ["Engineer", "Manager", "Intern"],
+      },
+    ])
+    .then((response) => {
+      if (response.roleToAdd === "Engineer") {
+        getEngineerInfo();
+      } else if (response.roleToAdd === "Manager") {
+        getManagerInfo();
+      } else if (response.roleToAdd === "Intern") {
+        getInternInfo();
+      } else {
+        AppenCard();
+      }
+    });
+}
+
+function getEngineerInfo() {
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        name: "newEmpName",
+        message: "Type New Engineer's Name.",
+      },
+      {
+        type: "input",
+        name: "newEmpID",
+        message: "Type New Engineer's ID.",
+      },
+      {
+        type: "input",
+        name: "newEmpEmail",
+        message: "Type New Engineer's Email address.",
+      },
+      {
+        type: "input",
+        name: "newEmpGithub",
+        message: "Type New Engineer's Github Name.",
+      },
+    ])
+    .then((response) => {
+      let engineer = new Engineer(
+        response.newEmpName,
+        response.newEmpID,
+        response.newEmpEmail,
+        response.newEmpGithub
+      );
+
+      employeeSlot.push(engineer);
+      // insert add new member function here**
+      generateEmployee();
+    });
+}
+
+function AppenCard() {
+  fs.writeFile("employee_cards.html", generateHTML(employeeSlot), (err) =>
+    err
+      ? console.log(err)
+      : console.log("employee_cards.html has been created.")
+  );
+}
