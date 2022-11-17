@@ -68,6 +68,82 @@ function getEngineerInfo() {
     });
 }
 
+function getManagerInfo() {
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        name: "newEmpName",
+        message: "Type New Manager's Name.",
+      },
+      {
+        type: "input",
+        name: "newEmpID",
+        message: "Type New Manager's ID.",
+      },
+      {
+        type: "input",
+        name: "newEmpEmail",
+        message: "Type New Manager's Email address.",
+      },
+      {
+        type: "input",
+        name: "newEmpOffice",
+        message: "Type New Manager's Office number.",
+      },
+    ])
+    .then((response) => {
+      let manager = new Manager(
+        response.newEmpName,
+        response.newEmpID,
+        response.newEmpEmail,
+        response.newEmpOffice
+      );
+
+      employeeSlot.push(manager);
+      // insert add new member function here**
+      generateEmployee();
+    });
+}
+
+function getInternInfo() {
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        name: "newEmpName",
+        message: "Type New Intern's Name.",
+      },
+      {
+        type: "input",
+        name: "newEmpID",
+        message: "Type New Intern's ID.",
+      },
+      {
+        type: "input",
+        name: "newEmpEmail",
+        message: "Type New Intern's Email address.",
+      },
+      {
+        type: "input",
+        name: "newEmpGithub",
+        message: "Type New Intern's School.",
+      },
+    ])
+    .then((response) => {
+      let intern = new Intern(
+        response.newEmpName,
+        response.newEmpID,
+        response.newEmpEmail,
+        response.newEmpSchool
+      );
+
+      employeeSlot.push(Intern);
+      // insert add new member function here**
+      generateEmployee();
+    });
+}
+
 function AppenCard() {
   fs.writeFile("employee_cards.html", generateHTML(employeeSlot), (err) =>
     err
